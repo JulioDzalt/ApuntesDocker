@@ -1,0 +1,16 @@
+FROM node:alpine
+
+# Create app directory
+WORKDIR '/home/appJulio'
+
+# Install app dependencies
+COPY ["package.json", "package-lock.json*", "./"]
+RUN npm install
+
+# Note: source code will be mount as volume
+
+# Starting node using nodemon
+CMD ["npm", "start"]
+
+#docker build -t app-julio .
+#docker run -it -p 8000:8000 -v /home/julio/Desktop/ApuntesDocker/appJulio:/home/appJulio app-julio
