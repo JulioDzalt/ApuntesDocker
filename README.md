@@ -55,7 +55,7 @@ Ejemplo `$ sudo docker run nginx:latest`
 - Matar todos los contenedores activos ` $ sudo docker kill $(docker ps -q) `
 
 
-### Nuestro primer Docker file :,( para una app en NodeJS
+### Nuestro primer Docker file para una app en NodeJS
 Nota: Alpine es una distribucion linux muy pequena
 - Descarga node:12.22.1-alpine3.11
 - Crea el directorio /app y usalor como WORKDIR
@@ -163,7 +163,7 @@ mi-contenedorcito:v2
 ~~~
 
 
-## Pero todo a mano no es muy divertido... :(
+## Pero todo a mano no es muy divertido... 
 
 ## Version Docker Compose
 
