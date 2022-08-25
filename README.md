@@ -201,4 +201,3 @@ Para usarlo levantar todo `docker-compose up -d`
 
 Y se se cae algun contendor? Solo se debe ejcutar `docker-compose up -d` nuevamente y solo levantara a los caidos dejando los activos como estan
 
-Tecnicamente en esta tabla se ve la dif de ejcutar a mano y ejcutar usando docker compose
