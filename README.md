@@ -4,7 +4,7 @@
 # Primero descargar e instalar Docker
 
 ## Que es doker?
-1. Simpre el es mismo 
+1. "Siempre el es mismo"
 2. Funciona como un Sandbox
 3. Facil migrar a diferente hardware
 
@@ -35,6 +35,8 @@ CMD ["apache2"]
 De donde descargo imagenes de docker? https://hub.docker.com/
 Ejemplo `$ sudo docker pull nginx:latest`
 
+## TODO descargar una imagen en un archivo, en caso de no tener acceso a internet
+
 
 ### Corriendo imagenes de Docker (Contenedores)
 #### `$ sudo docker run <imagen:tag>`
@@ -50,8 +52,8 @@ Ejemplo `$ sudo docker run nginx:latest`
 - Matar un contenedor `$ sudo docker kill <CONTAINER ID>`
 - Revivir un contenedor `$ sudo docker start <CONTAINER ID>`
 - Ver los logs de un contenedor `$ sudo docker logs <CONTAINER ID>` o  `$ sudo docker logs -f <CONTAINER ID>`
-- Ejecutar con comando en un contenedor e iniciar una terminal vivo `$ sudo docker exec -it <CONTAINER ID> <COMANDO>`
-- Correr un contenedor en backgorud `$ sudo run -d <CONTAINER ID>`
+- Ejecutar con comando en un contenedor e iniciar una terminal `$ sudo docker exec -it <CONTAINER ID> <COMANDO>`
+- Correr un contenedor en segundoplano `$ sudo run -d <CONTAINER ID>`
 - Matar todos los contenedores activos ` $ sudo docker kill $(docker ps -q) `
 
 
@@ -89,7 +91,7 @@ Sintaxis: `sudo docker run -p <PUERTO ANFITRION>:<PUERTO CONTENEDOR> -it <NOMBRE
 
 
 ### Volumenes
-Estos son bidireccionales
+Estos son bidireccionales, muy utiles para desaroolo local o hacer backups de db
 Sintaxis: `docker run -v <DIR LOCAL>:<DIR COTENEDOR> -it <NOMBRE IMAGEN>`
 ```
 sudo docker run -it \
@@ -136,15 +138,15 @@ mysql:5.7
 
 ~~~
 
-"Algo esta raro no se creo automaticmaente la BD 'todos'"
+Nota: "investigar porque no se crea automaticmaente la BD 'todos'"
 
-Entonces la creamos manualemente:
+Entonces la creamos manualmente:
 
 ` docker exec -it 1386036a3127 mysql -p `
 ` Enter password: root`
 ` mysql> create database todos; `
 
-Y que ip tine la BD internamente? usando este podemos saber xd
+Y que ip tiene la BD internamente?
 ` docker run -dp 3000:3000 --network todo-app -e MYSQL_HOST=mysql -e MYSQL_USER=root -e MYSQL_PASSWORD=secret -e MYSQL_DB=todos getting-started:v2 `
 ` $ docker run -it --network todo-app-network nicolaka/netshoot`
 
